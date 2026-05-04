@@ -1,0 +1,15 @@
+---
+- name: My First Local Playbook
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Create a testing directory
+      file:
+        path: ./ansible_test_dir
+        state: directory
+        mode: '0755'
+
+    - name: Create a simple text file
+      copy:
+        dest: ./ansible_test_dir/hello.txt
+        content: "Hello from Ansible! The automation worked.\n"
